@@ -23,7 +23,7 @@ fetch(earthquake_url)
         radius: magnitude * 2,
         color: 'black',
         fillColor: 'red',
-        weight: 1,
+        weight: 0.5,
         //stroke = true,
         //weight = 1,
         //fillColor: 'red',
@@ -43,9 +43,13 @@ const legend = L.control({ position: 'bottomright' });
 
 legend.onAdd = function (world_map) {
   const div = L.DomUtil.create('div', 'info legend');
-  div.innerHTML = '<h4>Legend</h4>' +
-    '<i style="background:red"></i> Magnitude<br>' +
-    '<i style="background-color: #bdbdbd"></i> Depth';
+    div.innerHTML += '<h4>Depth Legend</h4>';
+    div.innerHTML += '<i style="background:red"></i><span>(-10-10)</span><br>';
+    div.innerHTML += '<i style="background: orange"></i><span>(10-30)</span><br>';
+    div.innerHTML += '<i style="background: yellow"></i><span>(30-50)</span><br>';
+    div.innerHTML += '<i style="background: green"></i><span>(50-70)</span><br>';
+    div.innerHTML += '<i style="background: blue"></i><span>(70-90)</span><br>';
+    div.innerHTML += '<i style="background: purple"></i><span>(90+)</span><br>';
 
   return div;
 };
